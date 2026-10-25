@@ -1,0 +1,36 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# OneDrive
+~$*
+*.tmp
+desktop.ini
+.849C9593-D756-4E56-8D6E-42412F2A707B
+
+# Editores / IDE
+.vscode/
+.idea/
+*.swp
+*~
+
+# draw.io (copias de seguridad y temporales)
+*.drawio.bkp
+.$*.bkp
+.$*.dtmp
+
+# Claude Code (configuración local; los skills se versionan aparte)
+.claude/settings.local.json
+.agents/
+.claude/
+skills-lock.json
+
+# Dependencias / builds / logs / secretos
+node_modules/
+dist/
+build/
+*.log
+.env
+.env.*
