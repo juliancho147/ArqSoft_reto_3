@@ -163,7 +163,7 @@ dl.gl dt{font-weight:650;background:var(--surface-2)}
 dl.gl dt:last-of-type,dl.gl dd:last-of-type{border-bottom:0}
 .formbox{text-align:center;padding:26px}
 .formbox .btn{margin-top:12px;padding:10px 18px}
-.btn[aria-disabled="true"]{opacity:.55;cursor:not-allowed}
+.formurl{font-size:14px;color:var(--muted);margin:16px auto 0;max-width:62ch;word-break:break-all}
 footer{color:var(--muted);font-size:14px;border-top:1px solid var(--line);padding-top:18px}
 
 .modal{position:fixed;inset:0;background:rgba(8,10,14,.88);display:none;flex-direction:column;z-index:50}
@@ -529,13 +529,13 @@ footer{color:var(--muted);font-size:14px;border-top:1px solid var(--line);paddin
   <h2>Las decisiones de diseño y los requisitos que atacan</h2>
   <p class="lead">Se usan solo las tácticas de modificabilidad y de interoperabilidad de la documentación del curso.</p>
   <div class="tablewrap"><table>
-    <tr><th>Táctica</th><th>ASR que la usan</th><th>Dónde se ve</th></tr>
-    <tr><td><b>Dividir módulos</b> (coherencia semántica)</td><td><span class="pill">MOD-1</span><span class="pill int">INT-1</span></td><td>Un módulo por entidad en <code>transformacion_datos</code>; transformación separada de reportería.</td></tr>
-    <tr><td><b>Abstraer servicios comunes</b></td><td><span class="pill">MOD-2</span><span class="pill int">INT-2</span></td><td><code>acceso_modelo_unificado</code> con la interfaz <code>i_modelo_unificado</code>.</td></tr>
-    <tr><td><b>Usar intermediarios</b> (cola o bus)</td><td><span class="pill">MOD-1</span><span class="pill int">INT-1</span></td><td><code>intermediario</code>: las empresas envían sin depender del procesamiento.</td></tr>
-    <tr><td><b>Reemplazo de componentes</b></td><td><span class="pill">MOD-1</span><span class="pill int">INT-1</span><span class="pill int">INT-2</span></td><td>Interfaces <code>i_transformacion</code> e <code>i_modelo_unificado</code>, implementadas por componentes intercambiables.</td></tr>
-    <tr><td><b>Parametrización</b></td><td><span class="pill">MOD-2</span> (principal), <span class="pill">MOD-1</span> (complemento)</td><td>Módulos <code>parametros_*</code> (en turquesa en la vista de módulos).</td></tr>
-    <tr><td><b>Orquestar</b></td><td><span class="pill int">INT-1</span><span class="pill int">INT-2</span></td><td><code>orquestador_integracion</code> coordina cada flujo.</td></tr>
+    <tr><th>Táctica</th><th>Categoría</th><th>Requisitos</th><th>Dónde se ve</th></tr>
+    <tr><td><b>Dividir módulos</b> (coherencia semántica)</td><td>Incrementar la cohesión</td><td><span class="pill">MOD-1</span><span class="pill int">INT-1</span></td><td>Un módulo por entidad en <code>transformacion_datos</code>; transformación separada de reportería.</td></tr>
+    <tr><td><b>Abstraer servicios comunes</b></td><td>Reducir el acoplamiento</td><td><span class="pill">MOD-2</span><span class="pill int">INT-2</span></td><td><code>acceso_modelo_unificado</code> con la interfaz <code>i_modelo_unificado</code>.</td></tr>
+    <tr><td><b>Usar intermediarios</b> (cola o bus)</td><td>Reducir el acoplamiento</td><td><span class="pill">MOD-1</span><span class="pill int">INT-1</span></td><td><code>intermediario</code>: las empresas envían sin depender del procesamiento.</td></tr>
+    <tr><td><b>Reemplazo de componentes</b></td><td>Diferir el enlace</td><td><span class="pill">MOD-1</span><span class="pill int">INT-1</span><span class="pill int">INT-2</span></td><td>Interfaces <code>i_transformacion</code> e <code>i_modelo_unificado</code>, implementadas por componentes intercambiables.</td></tr>
+    <tr><td><b>Parametrización</b></td><td>Diferir el enlace</td><td><span class="pill">MOD-2</span> (principal), <span class="pill">MOD-1</span> (complemento)</td><td>Módulos <code>parametros_*</code> (en turquesa en la vista de módulos).</td></tr>
+    <tr><td><b>Orquestar</b></td><td>Interoperabilidad</td><td><span class="pill int">INT-1</span><span class="pill int">INT-2</span></td><td><code>orquestador_integracion</code> coordina cada flujo.</td></tr>
   </table></div>
 </section>
 
@@ -760,11 +760,18 @@ footer{color:var(--muted);font-size:14px;border-top:1px solid var(--line);paddin
   <h2>Cómo se validará esta arquitectura</h2>
   <p class="lead">La validación no se hace con código, sino con el juicio de arquitectos externos al equipo de diseño. Usted es parte de ese proceso.</p>
   <div class="card">
-    <p>Después de leer este documento, se le pedirá responder una encuesta individual sobre qué tan modificable e interoperable resulta la arquitectura, con preguntas por cada uno de los cuatro requisitos y preguntas abiertas sobre riesgos y mejoras.</p>
+    <p>Después de leer este documento, se le pedirá completar el formulario de juicio de expertos, que tiene tres partes:</p>
+    <ol class="seq">
+      <li><b>Registro del evaluador:</b> cargo, sector, experiencia, formación y su nivel de conocimiento del tema.</li>
+      <li><b>Quince afirmaciones</b> sobre los requisitos de calidad de modificabilidad (MOD-1 y MOD-2) e interoperabilidad (INT-1 e INT-2), que se califican con una escala de 1 a 5 o con “N/S”.</li>
+      <li><b>Observaciones</b> por atributo de calidad.</li>
+    </ol>
+    <p>Tiempo estimado: 15 minutos, más la lectura de este documento.</p>
     <div class="formbox">
       <b>Formulario de evaluación</b>
-      <p style="color:var(--muted);margin:6px 0 0">Microsoft Forms · el enlace se agregará cuando el formulario esté listo.</p>
-      <a class="btn primary" aria-disabled="true" href="#validacion" onclick="return false">Ir al formulario (enlace pendiente)</a>
+      <p style="color:var(--muted);margin:6px 0 0">Formulario en línea · se abre en una pestaña nueva. Lea antes el documento completo.</p>
+      <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfw7oXMTeDwjLtxeGbMaE7a3IF0vdv49iwLtUYxpsosVV_cCg/viewform" target="_blank" rel="noopener noreferrer">Ir al formulario de evaluación ↗</a>
+      <p class="formurl">Si el botón no se abre, copie este enlace en su navegador:<br><a href="https://docs.google.com/forms/d/e/1FAIpQLSfw7oXMTeDwjLtxeGbMaE7a3IF0vdv49iwLtUYxpsosVV_cCg/viewform" target="_blank" rel="noopener noreferrer">https://docs.google.com/forms/d/e/1FAIpQLSfw7oXMTeDwjLtxeGbMaE7a3IF0vdv49iwLtUYxpsosVV_cCg/viewform</a></p>
     </div>
   </div>
 </section>
