@@ -13,7 +13,7 @@ El reto es diseñar una arquitectura que integre clientes, contratos, proveedore
 | Archivo | Descripción |
 |---|---|
 | [ARTI4109-reto3-v2.pdf](ARTI4109-reto3-v2.pdf) | Enunciado del reto |
-| [Arquitectura-XYZ-documento.html](Arquitectura-XYZ-documento.html) | Documento de arquitectura (abrir en el navegador) |
+| [index.html](index.html) ([ver en línea](https://juliancho147.github.io/ArqSoft_reto_3/)) | Documento de arquitectura (abrir en el navegador) |
 | [MEMORIA.md](MEMORIA.md) | Memoria de trabajo: decisiones, ASRs/QAS, vistas y pendientes |
 | [Arquitectura-Reto3.drawio](Arquitectura-Reto3.drawio) | Diagramas fuente (draw.io), una pestaña por vista |
 | `Arquitectura-Reto3_*.svg` | Exportaciones de cada vista: funcional, módulos, zona cruda, zona estructurada, INT-1 (facturación y pagos), INT-2 (consolidación de personas) |
@@ -27,7 +27,7 @@ El detalle de cada escenario está en [MEMORIA.md](MEMORIA.md).
 
 ## Cómo ver el documento
 
-Abrir `Arquitectura-XYZ-documento.html` en cualquier navegador (no requiere servidor ni dependencias). Los diagramas se editan con [draw.io](https://www.drawio.com/) abriendo el archivo `.drawio`.
+Disponible en https://juliancho147.github.io/ArqSoft_reto_3/ (GitHub Pages), o abrir `index.html` en cualquier navegador (no requiere servidor ni dependencias). Los diagramas se editan con [draw.io](https://www.drawio.com/) abriendo el archivo `.drawio`.
 
 ## Autor
 
