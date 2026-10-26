@@ -529,13 +529,13 @@ footer{color:var(--muted);font-size:14px;border-top:1px solid var(--line);paddin
   <h2>Las decisiones de diseño y los requisitos que atacan</h2>
   <p class="lead">Se usan solo las tácticas de modificabilidad y de interoperabilidad de la documentación del curso.</p>
   <div class="tablewrap"><table>
-    <tr><th>Táctica</th><th>Categoría</th><th>Requisitos</th><th>Dónde se ve</th></tr>
-    <tr><td><b>Dividir módulos</b> (coherencia semántica)</td><td>Incrementar la cohesión</td><td><span class="pill">MOD-1</span><span class="pill int">INT-1</span></td><td>Un módulo por entidad en <code>transformacion_datos</code>; transformación separada de reportería.</td></tr>
-    <tr><td><b>Abstraer servicios comunes</b></td><td>Reducir el acoplamiento</td><td><span class="pill">MOD-2</span><span class="pill int">INT-2</span></td><td><code>acceso_modelo_unificado</code> con la interfaz <code>i_modelo_unificado</code>.</td></tr>
-    <tr><td><b>Usar intermediarios</b> (cola o bus)</td><td>Reducir el acoplamiento</td><td><span class="pill">MOD-1</span><span class="pill int">INT-1</span></td><td><code>intermediario</code>: las empresas envían sin depender del procesamiento.</td></tr>
-    <tr><td><b>Reemplazo de componentes</b></td><td>Diferir el enlace</td><td><span class="pill">MOD-1</span><span class="pill int">INT-1</span><span class="pill int">INT-2</span></td><td>Interfaces <code>i_transformacion</code> e <code>i_modelo_unificado</code>, implementadas por componentes intercambiables.</td></tr>
-    <tr><td><b>Parametrización</b></td><td>Diferir el enlace</td><td><span class="pill">MOD-2</span> (principal), <span class="pill">MOD-1</span> (complemento)</td><td>Módulos <code>parametros_*</code> (en turquesa en la vista de módulos).</td></tr>
-    <tr><td><b>Orquestar</b></td><td>Interoperabilidad</td><td><span class="pill int">INT-1</span><span class="pill int">INT-2</span></td><td><code>orquestador_integracion</code> coordina cada flujo.</td></tr>
+    <tr><th>Táctica</th><th>ASR que la usan</th><th>Dónde se ve</th></tr>
+    <tr><td><b>Dividir módulos</b> (coherencia semántica)</td><td><span class="pill">MOD-1</span><span class="pill int">INT-1</span></td><td>Un módulo por entidad en <code>transformacion_datos</code>; transformación separada de reportería.</td></tr>
+    <tr><td><b>Abstraer servicios comunes</b></td><td><span class="pill">MOD-2</span><span class="pill int">INT-2</span></td><td><code>acceso_modelo_unificado</code> con la interfaz <code>i_modelo_unificado</code>.</td></tr>
+    <tr><td><b>Usar intermediarios</b> (cola o bus)</td><td><span class="pill">MOD-1</span><span class="pill int">INT-1</span></td><td><code>intermediario</code>: las empresas envían sin depender del procesamiento.</td></tr>
+    <tr><td><b>Reemplazo de componentes</b></td><td><span class="pill">MOD-1</span><span class="pill int">INT-1</span><span class="pill int">INT-2</span></td><td>Interfaces <code>i_transformacion</code> e <code>i_modelo_unificado</code>, implementadas por componentes intercambiables.</td></tr>
+    <tr><td><b>Parametrización</b></td><td><span class="pill">MOD-2</span> (principal), <span class="pill">MOD-1</span> (complemento)</td><td>Módulos <code>parametros_*</code> (en turquesa en la vista de módulos).</td></tr>
+    <tr><td><b>Orquestar</b></td><td><span class="pill int">INT-1</span><span class="pill int">INT-2</span></td><td><code>orquestador_integracion</code> coordina cada flujo.</td></tr>
   </table></div>
 </section>
 
