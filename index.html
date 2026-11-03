@@ -222,6 +222,20 @@ footer{color:var(--muted);font-size:14px;border-top:1px solid var(--line);paddin
 .motion .rv.stagger.in>*{opacity:1;transform:none;transition-delay:calc(var(--i,0)*70ms)}
 .motion .rv.stagger{opacity:1}
 @media print{.motion .rv,.motion .rv>*{opacity:1!important;transform:none!important}}
+
+/* Resultados del juicio de expertos */
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin:22px 0}
+.kpi{background:var(--surface);border:1px solid var(--line);border-top:6px solid var(--ink);border-radius:14px;padding:16px 18px}
+.kpi b{display:block;font-size:30px;line-height:1.1;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.kpi span{font-size:14px;color:var(--muted)}
+.bar{display:inline-block;vertical-align:middle;width:110px;height:10px;border:1.5px solid var(--ink);border-radius:6px;background:var(--surface);overflow:hidden;margin-right:8px}
+.bar i{display:block;height:100%;background:var(--brand);border-right:1.5px solid var(--ink)}
+td.num,th.num{text-align:center;font-variant-numeric:tabular-nums;white-space:nowrap}
+.res-note{border-left:6px solid var(--brand);background:var(--surface-2);padding:12px 16px;border-radius:0 10px 10px 0;margin:18px 0;max-width:80ch;font-size:15px}
+.quote{margin:8px 0 0;padding-left:14px;border-left:3px solid var(--ctl);color:var(--ink);font-size:15px}
+.who{font-size:13px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+@media (max-width:980px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.kpis{grid-template-columns:1fr}.bar{width:70px}}
 </style>
 </head>
 <body>
@@ -244,6 +258,7 @@ footer{color:var(--muted);font-size:14px;border-top:1px solid var(--line);paddin
     <li><a href="#limites"><span class="n">9</span>Decisiones, supuestos y límites</a></li>
     <li><a href="#validacion"><span class="n">10</span>Su evaluación</a></li>
     <li><a href="#glosario"><span class="n">11</span>Glosario</a></li>
+    <li><a href="#resultados"><span class="n">12</span>Resultados</a></li>
   </ol>
   <div class="tools"><button id="hideSide" type="button">Ocultar índice</button><button type="button" onclick="window.print()">Imprimir</button></div>
 </nav>
@@ -795,6 +810,103 @@ footer{color:var(--muted);font-size:14px;border-top:1px solid var(--line);paddin
     <dt>«datastore»</dt><dd>Estereotipo UML de un componente que almacena datos.</dd>
     <dt>Registro rechazado</dt><dd>Registro que no pasó la validación; se guarda aparte con el motivo, sin perderse.</dd>
   </dl>
+</section>
+
+<!-- 12 RESULTADOS -->
+<section id="resultados">
+  <div class="kicker">12 · Resultados</div>
+  <h2>Qué opinaron los evaluadores</h2>
+  <p class="lead">Resultado del juicio de expertos sobre las quince afirmaciones del formulario, calificadas de 1 a 5. Es un resultado preliminar: son tres evaluadores y uno de ellos es un agente de IA.</p>
+
+  <div class="kpis">
+    <div class="kpi"><b>4,42 / 5</b><span>Promedio general de las 15 afirmaciones</span></div>
+    <div class="kpi"><b>3 · 15</b><span>Evaluadores y afirmaciones calificadas</span></div>
+    <div class="kpi"><b>≥ 4,0</b><span>Promedio mínimo por afirmación; ninguna cayó por debajo</span></div>
+    <div class="kpi"><b>0 de 45</b><span>Calificaciones por debajo de 4 (de acuerdo o totalmente de acuerdo)</span></div>
+  </div>
+
+  <h3>Quiénes evaluaron</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Evaluador</th><th>Cargo</th><th>Sector</th><th>Experiencia en arquitectura</th><th>Formación</th><th>Roles</th><th class="num">Conocimiento declarado</th></tr>
+    <tr><td><b>E1</b></td><td>Agente de IA</td><td>Tecnología o consultoría</td><td>No aplica</td><td>Referencia: <i>Software Architecture in Practice</i> (Bass)</td><td>Arquitecto de software</td><td class="num">10/10</td></tr>
+    <tr><td><b>E2</b></td><td>Arquitecto de datos</td><td>Tecnología o consultoría</td><td>5 a 10 años</td><td>Maestría</td><td>Arquitecto de software, líder técnico o desarrollador</td><td class="num">7/10</td></tr>
+    <tr><td><b>E3</b></td><td>Coordinador de desarrollo y pruebas de TI</td><td>Financiero o asegurador</td><td>5 a 10 años</td><td>Maestría</td><td>Arquitecto de software y de soluciones, líder técnico o desarrollador</td><td class="num">10/10</td></tr>
+  </table></div>
+  <p style="font-size:14px;color:var(--muted)">Por confidencialidad no se publican nombres ni datos que permitan identificar a las personas. El conocimiento declarado es la autoevaluación de 0 a 10 en arquitectura de software y atributos de calidad.</p>
+
+  <h3>Resultados por tema</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Tema</th><th class="num">Preguntas</th><th class="num">E1 (IA)</th><th class="num">E2</th><th class="num">E3</th><th>Promedio</th></tr>
+      <tr><td><b>Entendimiento y vistas</b></td><td class="num">1–3</td><td class="num">5,00</td><td class="num">4,33</td><td class="num">5,00</td><td><span class="bar" aria-hidden="true"><i style="width:96%"></i></span><b>4,78</b></td></tr>
+      <tr><td><b>MOD-1 · Cambiar una transformación</b></td><td class="num">4–5</td><td class="num">4,00</td><td class="num">5,00</td><td class="num">4,50</td><td><span class="bar" aria-hidden="true"><i style="width:90%"></i></span><b>4,50</b></td></tr>
+      <tr><td><b>MOD-2 · Cambiar informes</b></td><td class="num">6–7</td><td class="num">4,00</td><td class="num">4,00</td><td class="num">4,50</td><td><span class="bar" aria-hidden="true"><i style="width:83%"></i></span><b>4,17</b></td></tr>
+      <tr><td><b>INT-1 · Facturación y pagos</b></td><td class="num">8–9</td><td class="num">4,00</td><td class="num">4,50</td><td class="num">4,50</td><td><span class="bar" aria-hidden="true"><i style="width:87%"></i></span><b>4,33</b></td></tr>
+      <tr><td><b>INT-2 · Consolidar personas</b></td><td class="num">10–11</td><td class="num">4,00</td><td class="num">4,50</td><td class="num">5,00</td><td><span class="bar" aria-hidden="true"><i style="width:90%"></i></span><b>4,50</b></td></tr>
+      <tr><td><b>Evolución: empresa nueva y reemplazo</b></td><td class="num">12–13</td><td class="num">4,00</td><td class="num">4,50</td><td class="num">4,00</td><td><span class="bar" aria-hidden="true"><i style="width:83%"></i></span><b>4,17</b></td></tr>
+      <tr><td><b>Límites y supuestos</b></td><td class="num">14</td><td class="num">4,00</td><td class="num">4,00</td><td class="num">4,00</td><td><span class="bar" aria-hidden="true"><i style="width:80%"></i></span><b>4,00</b></td></tr>
+      <tr><td><b>Veredicto global</b></td><td class="num">15</td><td class="num">4,00</td><td class="num">5,00</td><td class="num">5,00</td><td><span class="bar" aria-hidden="true"><i style="width:93%"></i></span><b>4,67</b></td></tr>
+      <tr><td><b>Total</b></td><td class="num">1–15</td><td class="num">4,20</td><td class="num">4,47</td><td class="num">4,60</td><td><span class="bar" aria-hidden="true"><i style="width:88%"></i></span><b>4,42</b></td></tr>
+  </table></div>
+
+  <details class="asr" style="margin-top:14px">
+    <summary><span class="t">Ver las quince afirmaciones, una por una</span></summary>
+    <div class="tablewrap" style="padding:0 20px 16px"><table>
+      <tr><th class="num">#</th><th>Afirmación</th><th class="num">E1 (IA)</th><th class="num">E2</th><th class="num">E3</th><th class="num">Promedio</th></tr>
+        <tr><td class="num">1</td><td>Entendimiento del problema</td><td class="num">5</td><td class="num">4</td><td class="num">5</td><td class="num">4,67</td></tr>
+        <tr><td class="num">2</td><td>Separación en tres zonas</td><td class="num">5</td><td class="num">5</td><td class="num">5</td><td class="num">5,00</td></tr>
+        <tr><td class="num">3</td><td>Coherencia de vistas y trazabilidad</td><td class="num">5</td><td class="num">4</td><td class="num">5</td><td class="num">4,67</td></tr>
+        <tr><td class="num">4</td><td>MOD-1: se cumple</td><td class="num">4</td><td class="num">5</td><td class="num">4</td><td class="num">4,33</td></tr>
+        <tr><td class="num">5</td><td>MOD-1: tácticas</td><td class="num">4</td><td class="num">5</td><td class="num">5</td><td class="num">4,67</td></tr>
+        <tr><td class="num">6</td><td>MOD-2: se cumple</td><td class="num">4</td><td class="num">4</td><td class="num">5</td><td class="num">4,33</td></tr>
+        <tr><td class="num">7</td><td>MOD-2: tácticas</td><td class="num">4</td><td class="num">4</td><td class="num">4</td><td class="num">4,00</td></tr>
+        <tr><td class="num">8</td><td>INT-1: se cumple</td><td class="num">4</td><td class="num">5</td><td class="num">4</td><td class="num">4,33</td></tr>
+        <tr><td class="num">9</td><td>INT-1: tácticas</td><td class="num">4</td><td class="num">4</td><td class="num">5</td><td class="num">4,33</td></tr>
+        <tr><td class="num">10</td><td>INT-2: se cumple</td><td class="num">4</td><td class="num">5</td><td class="num">5</td><td class="num">4,67</td></tr>
+        <tr><td class="num">11</td><td>INT-2: tácticas</td><td class="num">4</td><td class="num">4</td><td class="num">5</td><td class="num">4,33</td></tr>
+        <tr><td class="num">12</td><td>Incorporar una empresa nueva</td><td class="num">4</td><td class="num">4</td><td class="num">4</td><td class="num">4,00</td></tr>
+        <tr><td class="num">13</td><td>Reemplazar componentes en producción</td><td class="num">4</td><td class="num">5</td><td class="num">4</td><td class="num">4,33</td></tr>
+        <tr><td class="num">14</td><td>Los límites no impiden cumplir</td><td class="num">4</td><td class="num">4</td><td class="num">4</td><td class="num">4,00</td></tr>
+        <tr><td class="num">15</td><td>Veredicto global</td><td class="num">4</td><td class="num">5</td><td class="num">5</td><td class="num">4,67</td></tr>
+        </table></div>
+  </details>
+
+  <h3>Cómo leerlos</h3>
+  <ul>
+    <li><b>Lo mejor valorado:</b> el entendimiento del problema y la separación en tres zonas (pregunta 2: los tres dieron 5). Las vistas permiten seguir cada requisito hasta sus componentes.</li>
+    <li><b>Los cuatro requisitos se consideran respaldados</b> (MOD-1 4,50 · INT-2 4,50 · INT-1 4,33 · MOD-2 4,17).</li>
+    <li><b>Lo más bajo, aunque aceptado:</b> los límites y supuestos (4,00, con los tres de acuerdo), las tácticas de MOD-2 (4,00) e incorporar una empresa nueva (4,00). Coincide con lo que este documento declara como abierto en la sección <a href="#limites">Decisiones, supuestos y límites</a>.</li>
+  </ul>
+
+  <div class="res-note"><b>Sin el agente de IA:</b> con solo E2 y E3 el promedio general es <b>4,53</b>. Es decir, la conclusión favorable se sostiene con los dos evaluadores humanos. En los dos casos la muestra es pequeña.</div>
+
+  <h3>Observaciones de los evaluadores</h3>
+  <div class="grid g2">
+    <div class="card"><b>Modificabilidad</b>
+      <p class="who" style="margin-top:12px">E3 · Coordinador de desarrollo y pruebas</p>
+      <p class="quote">No se debió dejar fuera disponibilidad, persistencia y escalabilidad, entre otros temas, para que esta arquitectura sirva de referencia y logre las transiciones necesarias hasta una arquitectura objetivo (<i>To Be</i>).</p>
+      <p class="who" style="margin-top:12px">E1 · Agente de IA</p>
+      <p class="quote">La arquitectura responde a los requisitos de modificabilidad e integrabilidad; separa recepción, transformación y consumo, conserva el dato original y limita el efecto de cada cambio.</p>
+    </div>
+    <div class="card"><b>Interoperabilidad</b>
+      <p class="who" style="margin-top:12px">E2 · Arquitecto de datos</p>
+      <p class="quote">Lo veo bastante acorde para resolver el problema planteado.</p>
+      <p class="who" style="margin-top:12px">E3 · Coordinador de desarrollo y pruebas</p>
+      <p class="quote">La estrategia de interoperabilidad está bien abarcada, para abordarla de manera modular y con entregables claros.</p>
+      <p class="who" style="margin-top:12px">E1 · Agente de IA</p>
+      <p class="quote">La arquitectura se considera adecuada, pero no demostrada: la evaluación se hizo sobre el diseño, sin implementación. Las metas de esfuerzo son de diseño y deben validarse con un cambio de ejemplo o con datos reales.</p>
+    </div>
+  </div>
+
+  <div class="res-note"><b>Comentarios adicionales del agente de IA (fuera del alcance).</b> Además de calificar, E1 escribió un análisis propio con una tabla de veredictos que incluye requisitos que <b>no están en este documento ni en el formulario</b>: MOD-2A y MOD-2B (cambiar un informe con campos existentes, 40 h, o con un campo nuevo, 100 h) e INT-3 (incorporar una empresa nueva, 160 h), y menciona tácticas como restringir dependencias que no se adoptaron. Un agente de IA analiza lo que se le propone, pero a veces se sale del esquema y emite veredictos sobre alcances que el proyecto no definió. Por eso estos veredictos <b>no se cuentan</b> en los resultados; solo se tomaron sus calificaciones de las quince afirmaciones. Su advertencia sí es pertinente: la arquitectura es adecuada <i>pero no demostrada</i>, porque se evaluó el diseño sin implementación.</div>
+
+  <h3>Conclusión</h3>
+  <p>El juicio de expertos es <b>favorable y preliminar</b>: la arquitectura se considera adecuada para los cuatro requisitos y ninguna afirmación obtuvo menos de 4. Las observaciones apuntan a lo mismo: lo que falta no es el diseño de modificabilidad e interoperabilidad, sino demostrarlo y ampliar el alcance.</p>
+  <ol class="seq">
+    <li><b>Validar las metas de 60 y 40 horas hombre</b> con un cambio de ejemplo o con datos reales (hoy son metas de diseño sin línea base).</li>
+    <li><b>Cerrar lo abierto:</b> qué pasa si una búsqueda de persona encuentra varias coincidencias, y definir la tecnología de almacenamiento y de mensajería.</li>
+    <li><b>Ampliar el alcance</b> a disponibilidad, persistencia y escalabilidad para llegar a una arquitectura objetivo, como pidió E3.</li>
+    <li><b>Aumentar la muestra de evaluadores humanos</b> antes de dar el resultado por definitivo.</li>
+  </ol>
 </section>
 
 <footer><b>Desarrollo hecho por el Grupo 4.</b> Curso ARTI4109 · Arquitectura de Software · Maestría en Arquitecturas de TI · Universidad de los Andes · Reto 3: facilidad de integración y modificación.</footer>

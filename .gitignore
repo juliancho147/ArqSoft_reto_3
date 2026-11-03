@@ -34,3 +34,6 @@ build/
 *.log
 .env
 .env.*
+
+# Datos del juicio de expertos (cargos y formación de los evaluadores)
+Reto_3_Juicio_Expertos.xlsx
